@@ -2,6 +2,7 @@
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import browserSync from 'browser-sync';
+import dartSass from 'gulp-dart-sass';
 import del from 'del';
 
 const $ = gulpLoadPlugins();
@@ -12,17 +13,17 @@ gulp.task('styles', () => {
   return gulp.src('sass/*.scss')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
-    .pipe($.sass.sync({
+    .pipe(dartSass.sync({
       outputStyle: 'expanded',
       precision: 10,
       includePaths: ['.']
-    }).on('error', $.sass.logError))
-    .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
+    }).on('error', dartSass.logError))
+    .pipe($.autoprefixer({ overrideBrowserslist: ['> 1%', 'last 2 versions', 'Firefox ESR'] }))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('css'))
     .pipe($.cssnano())
-    .pipe($.rename({                                // rename file
-        suffix: ".min"                            // add *.min suffix
+    .pipe($.rename({
+      suffix: ".min"
     }))
     .pipe(gulp.dest('css'))
     .on('end', reload);
