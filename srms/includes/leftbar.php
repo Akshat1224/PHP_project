@@ -2,7 +2,7 @@
     <style>
         /* Override bg-black-300 with light blue background */
         .bg-black-300 {
-            background-color: #add8e6; /* Light blue */
+            background-color: #5f9ea0; /* Light blue */
         }
 
         /* Keep user-info hover effect */

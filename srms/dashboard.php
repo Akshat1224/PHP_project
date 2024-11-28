@@ -23,31 +23,6 @@ if(strlen($_SESSION['alogin'])=="")
         <link rel="stylesheet" href="css/icheck/skins/line/green.css" >
         <link rel="stylesheet" href="css/main.css" media="screen" >
         <script src="js/modernizr/modernizr.min.js"></script>
-        <style>
-            /* Specific color updates */
-            .dashboard-stat.bg-primary {
-                background-color: #3498db !important;
-                color: #fff !important;
-            }
-            .dashboard-stat.bg-danger {
-                background-color: #e74c3c !important;
-                color: #fff !important;
-            }
-            .dashboard-stat.bg-warning {
-                background-color: #f1c40f !important;
-                color: #fff !important;
-            }
-            .dashboard-stat.bg-success {
-                background-color: #2ecc71 !important;
-                color: #fff !important;
-            }
-            .dashboard-stat .number {
-                font-size: 36px !important;
-            }
-            .dashboard-stat .name {
-                font-size: 18px !important;
-            }
-        </style>
     </head>
     <body class="top-navbar-fixed">
         <div class="main-wrapper">
@@ -73,7 +48,7 @@ if(strlen($_SESSION['alogin'])=="")
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <a class="dashboard-stat bg-primary" href="manage-students.php">
+                                        <a class="dashboard-stat bg-primary" href="manage-students.php" style="background-color: #007bff; color: #fff;">
 <?php 
 $sql1 ="SELECT StudentId from tblstudents ";
 $query1 = $dbh -> prepare($sql1);
@@ -90,7 +65,7 @@ $totalstudents=$query1->rowCount();
                                     <!-- /.col-lg-3 col-md-3 col-sm-6 col-xs-12 -->
 
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" >
-                                        <a class="dashboard-stat bg-danger" href="manage-subjects.php">
+                                        <a class="dashboard-stat bg-danger" href="manage-subjects.php" style="background-color: #dc3545; color: #fff;">
 <?php 
 $sql ="SELECT id from  tblsubjects ";
 $query = $dbh -> prepare($sql);
@@ -107,8 +82,8 @@ $totalsubjects=$query->rowCount();
                                     <!-- /.col-lg-3 col-md-3 col-sm-6 col-xs-12 -->
 
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-top:1%;">
-                                        <a class="dashboard-stat bg-warning" href="manage-classes.php">
-                                        <?php 
+                                        <a class="dashboard-stat bg-warning" href="manage-classes.php" style="background-color: #ffc107; color: #212529;">
+<?php 
 $sql2 ="SELECT id from  tblclasses ";
 $query2 = $dbh -> prepare($sql2);
 $query2->execute();
@@ -124,8 +99,8 @@ $totalclasses=$query2->rowCount();
                                     <!-- /.col-lg-3 col-md-3 col-sm-6 col-xs-12 -->
 
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"  style="margin-top:1%">
-                                        <a class="dashboard-stat bg-success" href="manage-results.php">
-                                        <?php 
+                                        <a class="dashboard-stat bg-success" href="manage-results.php" style="background-color: #28a745; color: #fff;">
+<?php 
 $sql3="SELECT  distinct StudentId from  tblresult ";
 $query3 = $dbh -> prepare($sql3);
 $query3->execute();
