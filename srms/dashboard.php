@@ -23,6 +23,31 @@ if(strlen($_SESSION['alogin'])=="")
         <link rel="stylesheet" href="css/icheck/skins/line/green.css" >
         <link rel="stylesheet" href="css/main.css" media="screen" >
         <script src="js/modernizr/modernizr.min.js"></script>
+        <style>
+            /* Specific color updates */
+            .dashboard-stat.bg-primary {
+                background-color: #3498db !important;
+                color: #fff !important;
+            }
+            .dashboard-stat.bg-danger {
+                background-color: #e74c3c !important;
+                color: #fff !important;
+            }
+            .dashboard-stat.bg-warning {
+                background-color: #f1c40f !important;
+                color: #fff !important;
+            }
+            .dashboard-stat.bg-success {
+                background-color: #2ecc71 !important;
+                color: #fff !important;
+            }
+            .dashboard-stat .number {
+                font-size: 36px !important;
+            }
+            .dashboard-stat .name {
+                font-size: 18px !important;
+            }
+        </style>
     </head>
     <body class="top-navbar-fixed">
         <div class="main-wrapper">
@@ -37,13 +62,11 @@ if(strlen($_SESSION['alogin'])=="")
                             <div class="row page-title-div">
                                 <div class="col-sm-6">
                                     <h2 class="title">Dashboard</h2>
-                                  
                                 </div>
                                 <!-- /.col-sm-6 -->
                             </div>
                             <!-- /.row -->
-                      
-                        </div>
+                       </div>
                         <!-- /.container-fluid -->
 
                         <section class="section">
@@ -58,7 +81,6 @@ $query1->execute();
 $results1=$query1->fetchAll(PDO::FETCH_OBJ);
 $totalstudents=$query1->rowCount();
 ?>
-
                                             <span class="number counter"><?php echo htmlentities($totalstudents);?></span>
                                             <span class="name">Regd Users</span>
                                             <span class="bg-icon"><i class="fa fa-users"></i></span>
@@ -129,7 +151,6 @@ $totalresults=$query3->rowCount();
                     </div>
                     <!-- /.main-page -->
 
-                    
                 </div>
                 <!-- /.content-container -->
             </div>
